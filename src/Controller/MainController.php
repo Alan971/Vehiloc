@@ -4,15 +4,17 @@ namespace App\Controller;
 
 use App\Entity\Voiture;
 use App\Repository\VoitureRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+#[Route('/main')]
 class MainController extends AbstractController
 {
-    #[Route('/main', name: 'app_main')]
-    public function index(Request $request, VoitureRepository $repository): Response
+    #[Route('/', name: 'app_main')]
+    public function index(VoitureRepository $repository): Response
     {
         $Voitures = $repository->findAll();
         
@@ -20,4 +22,20 @@ class MainController extends AbstractController
             'Voitures' => $Voitures,
         ]);
     }
+
+    #[Route('/{id}', name: 'app_main_remove', requirements: ['id' => '\d+'], methods:['GET', 'POST'])]
+    public function removeCar(?Voiture $Voiture, EntityManagerInterface $manager, VoitureRepository $repository): Response
+    {
+        //suppression de la voiture
+        $manager->remove($Voiture);
+        $manager->flush();
+
+        //retour à la page
+        $Voitures = $repository->findAll();
+        
+        return $this->render('main/index.html.twig', [
+            'Voitures' => $Voitures,
+        ]);
+    }
+
 }

@@ -26,7 +26,7 @@
                         <p>ou similaire | Saint-Étienne</p>
                     </a>
                     <div>
-                        <a href="#"><img src="{{ asset('/icons/trash.png') }}" alt="Supprimer" /></a>
+                        <a href="{{ path('app_main_remove', { id:Voiture.id})}}"><img src="{{ asset('/icons/trash.png') }}" alt="Supprimer" /></a>
                     </div>
                 </div>
                 <div class="mini-car-icons">
@@ -48,8 +48,8 @@
                     </div>
                 </div>
                 <div class="mini-car-price">
-                    <p class="price-per-day">{{Voiture.PricePerDay}} € / jour</p>
-                    <p class="price-per-month">{{Voiture.PricePerMonth}} € / mois</p>
+                    <p class="price-per-day">{{(Voiture.PricePerDay / 100)|format_currency('EUR', locale='fr') }} / jour</p>
+                    <p class="price-per-month">{{(Voiture.PricePerMonth / 100)|format_currency('EUR', locale='fr')}} / mois</p>
                 </div>
             </article>
         {% endfor %}

@@ -33,14 +33,17 @@ class VoitureType extends AbstractType
                 '7' => '7',
                 '8' => '8',
                 '9' => '9',
-                ),
-                
+                ),          
             ))
             ->add('GearType', EnumType::class, [
                 'class' => EnumGearStatus::class,
             ])
-            ->add('PricePerDay',MoneyType::class )
-            ->add('PricePerMonth', MoneyType::class)
+            ->add('PricePerDay',MoneyType::class, [
+                'divisor' => 100,
+            ] )
+            ->add('PricePerMonth', MoneyType::class, [
+                'divisor' => 100,
+            ])
             // ->add('PowerType', TextType::class)
             ->add('Comment', TextareaType::class)
         ;

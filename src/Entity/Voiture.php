@@ -4,7 +4,9 @@ namespace App\Entity;
 
 use App\Enum\GearStatus;
 use App\Repository\VoitureRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VoitureRepository::class)]
 class Voiture
@@ -17,28 +19,30 @@ class Voiture
     // #[ORM\Column(length: 255)]
     // private ?string $Marque = null;
 
+    #[Assert\NotBlank()]
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
     // #[ORM\Column(length: 255)]
     // private ?string $RentAgency = null;
 
+    #[Assert\Type(type: 'integer')]
     #[ORM\Column]
     private ?int $SeatNumber = null;
 
     #[ORM\Column(length: 255)]
     private ?GearStatus $GearType = null;
 
-    #[ORM\Column]
-    private ?float $PricePerDay = null;
+    #[ORM\Column(type : 'integer')]
+    private ?int $PricePerDay = null;
 
-    #[ORM\Column]
-    private ?float $PricePerMonth = null;
+    #[ORM\Column(type : 'integer')]
+    private ?int $PricePerMonth = null;
 
     // #[ORM\Column(length: 255)]
     // private ?string $PowerType = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255, nullable: true, type : Types::TEXT)]
     private ?string $Comment = null;
 
     public function getId(): ?int
@@ -106,24 +110,24 @@ class Voiture
         return $this;
     }
 
-    public function getPricePerDay(): ?float
+    public function getPricePerDay(): ?int
     {
         return $this->PricePerDay;
     }
 
-    public function setPricePerDay(float $PricePerDay): static
+    public function setPricePerDay(int $PricePerDay): static
     {
         $this->PricePerDay = $PricePerDay;
 
         return $this;
     }
 
-    public function getPricePerMonth(): ?float
+    public function getPricePerMonth(): ?int
     {
         return $this->PricePerMonth;
     }
 
-    public function setPricePerMonth(float $PricePerMonth): static
+    public function setPricePerMonth(int $PricePerMonth): static
     {
         $this->PricePerMonth = $PricePerMonth;
 

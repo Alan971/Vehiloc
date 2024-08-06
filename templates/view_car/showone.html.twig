@@ -25,9 +25,9 @@
     </p>
     <div class="total-rent">
         <span>Total</span>
-        <span>{{ Voiture.PricePerMonth }} €/mois</span>
+        <span>{{(Voiture.PricePerMonth / 100)|format_currency('EUR', locale='fr')}} /mois</span>
     </div>
-    <button class="btn-add">Louer pour {{ Voiture.PricePerMonth }}€/mois</button> <!-- Bouton inactif -->
+    <button class="btn-add">Louer pour {{(Voiture.PricePerMonth / 100)|format_currency('EUR', locale='fr')}} /mois</button> <!-- Bouton inactif -->
 </section>
 
 <section id="insurances">
