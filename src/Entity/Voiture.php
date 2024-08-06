@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\GearStatus;
 use App\Repository\VoitureRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,7 +27,7 @@ class Voiture
     private ?int $SeatNumber = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $GearType = null;
+    private ?GearStatus $GearType = null;
 
     #[ORM\Column]
     private ?float $PricePerDay = null;
@@ -93,12 +94,12 @@ class Voiture
         return $this;
     }
 
-    public function getGearType(): ?string
+    public function getGearType(): ?GearStatus
     {
         return $this->GearType;
     }
 
-    public function setGearType(string $GearType): static
+    public function setGearType(GearStatus $GearType): static
     {
         $this->GearType = $GearType;
 

@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Voiture;
+use App\Enum\GearStatus as EnumGearStatus;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -19,10 +22,23 @@ class VoitureType extends AbstractType
             // ->add('Marque', TextType::class)
             ->add('Name', TextType::class)
             // ->add('RentAgency', TextType::class)
-            ->add('SeatNumber', NumberType::class
+            ->add('SeatNumber', ChoiceType::class, array(
+                'choices' => array(
+                '1' => '1', 
+                '2' => '2',
+                '3' => '3',
+                '4' => '4',
+                '5' => '5',
+                '6' => '6',
+                '7' => '7',
+                '8' => '8',
+                '9' => '9',
+                ),
                 
-            )
-            ->add('GearType', TextType::class)
+            ))
+            ->add('GearType', EnumType::class, [
+                'class' => EnumGearStatus::class,
+            ])
             ->add('PricePerDay',MoneyType::class )
             ->add('PricePerMonth', MoneyType::class)
             // ->add('PowerType', TextType::class)

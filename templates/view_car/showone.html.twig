@@ -11,7 +11,6 @@
     <p class="description-car">
         {{ Voiture.Comment}}
     </p>
-    
     <div class="advantages">
         <div class="single-advantage"><img src="{{ asset('/icons/checked.png') }}" alt="" /> Km illimités</div>
         <div class="single-advantage"><img src="{{ asset('/icons/checked.png') }}" alt="" /> Taxe routière incluse</div>
@@ -20,11 +19,10 @@
         <div class="single-advantage"><img src="{{ asset('/icons/checked.png') }}" alt="" /> Assurance au tiers</div>
         <div class="single-advantage"><img src="{{ asset('/icons/checked.png') }}" alt="" /> Réservation sécurisée</div>
     </div>
-    
     <hr>
-    
-    <p class="legal-information">Les conducteurs doivent avoir leur permis de conduire depuis au moins 5 ans.</p>
-    
+    <p class="legal-information">
+        Les conducteurs doivent avoir leur permis de conduire depuis au moins 5 ans.
+    </p>
     <div class="total-rent">
         <span>Total</span>
         <span>{{ Voiture.PricePerMonth }} €/mois</span>
