@@ -13,14 +13,14 @@ class Voiture
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Marque = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $Marque = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $RentAgency = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $RentAgency = null;
 
     #[ORM\Column]
     private ?int $SeatNumber = null;
@@ -34,8 +34,8 @@ class Voiture
     #[ORM\Column]
     private ?float $PricePerMonth = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $PowerType = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $PowerType = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Comment = null;
@@ -45,17 +45,17 @@ class Voiture
         return $this->id;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->Marque;
-    }
+    // public function getMarque(): ?string
+    // {
+    //     return $this->Marque;
+    // }
 
-    public function setMarque(string $Marque): static
-    {
-        $this->Marque = $Marque;
+    // public function setMarque(string $Marque): static
+    // {
+    //     $this->Marque = $Marque;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getName(): ?string
     {
@@ -69,17 +69,17 @@ class Voiture
         return $this;
     }
 
-    public function getRentAgency(): ?string
-    {
-        return $this->RentAgency;
-    }
+    // public function getRentAgency(): ?string
+    // {
+    //     return $this->RentAgency;
+    // }
 
-    public function setRentAgency(string $RentAgency): static
-    {
-        $this->RentAgency = $RentAgency;
+    // public function setRentAgency(string $RentAgency): static
+    // {
+    //     $this->RentAgency = $RentAgency;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getSeatNumber(): ?int
     {
@@ -129,17 +129,17 @@ class Voiture
         return $this;
     }
 
-    public function getPowerType(): ?string
-    {
-        return $this->PowerType;
-    }
+    // public function getPowerType(): ?string
+    // {
+    //     return $this->PowerType;
+    // }
 
-    public function setPowerType(string $PowerType): static
-    {
-        $this->PowerType = $PowerType;
+    // public function setPowerType(string $PowerType): static
+    // {
+    //     $this->PowerType = $PowerType;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getComment(): ?string
     {

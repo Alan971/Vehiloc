@@ -9,12 +9,12 @@
     <h1>Ajouter une voiture</h1>
 
         {{ form_start(form) }}
-        {{ form_row(form.name, {label: 'Nom de la voiture'}) }}
-        {{ form_row(form.content, {label: 'Description'}) }}
+        {{ form_row(form.Name, {label: 'Nom de la voiture'}) }}
+        {{ form_row(form.Comment, {label: 'Description'}) }}
         {{ form_row(form.PricePerMonth, {label: 'Prix mensuel'}) }}
         {{ form_row(form.PricePerDay, {label: 'Prix journalier'}) }}
         {{ form_row(form.SeatNumber, {label: 'Nombre de places'}) }}
-        {{ form_row(form.GearType) {label: 'Boite de vitesse'}}}
+        {{ form_row(form.GearType, {label: 'Boite de vitesse'}) }}
         <button type="submit" class="btn-add">Ajouter</button>
         {{ form_end(form) }}
 
