@@ -24,18 +24,15 @@ class MainController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_main_remove', requirements: ['id' => '\d+'], methods:['GET', 'POST'])]
-    public function removeCar(?Voiture $Voiture, EntityManagerInterface $manager, VoitureRepository $repository): Response
+    public function removeCar(?Voiture $Voiture, EntityManagerInterface $manager): Response
     {
-        //suppression de la voiture
-        $manager->remove($Voiture);
-        $manager->flush();
-
+        //suppression de la voiture si elle existe
+        if(isset($Voiture)){
+            $manager->remove($Voiture);
+            $manager->flush();
+        }
         //retour à la page
-        $Voitures = $repository->findAll();
-        
-        return $this->render('main/index.html.twig', [
-            'Voitures' => $Voitures,
-        ]);
+        return $this->redirectToRoute('app_main');
     }
 
 }
